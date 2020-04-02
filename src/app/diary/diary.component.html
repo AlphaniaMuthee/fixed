@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>My Diary Entries</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div *ngFor='let diary of diaries;let i = index'>
+          <div>
+            <h4 id={{i}} appStrikethrough>{{diary.title}} due on {{diary.entryDate|date|uppercase}}</h4>
+            <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" style="margin-top:20px">
+        <app-entry-form (addDiary)="addNewDiary($event)"></app-entry-form>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container-fluid text-center">
+  <h1> New Entry</h1>
+  <hr>
+  <form (ngSubmit)='submitDiary()'>
+    <label for="date">Date of Entry</label>
+    <input type='date' id="date" [(ngModel)]="newDiary.dateDate" name="entryDate" #date="ngModel" required>
+    <div [hidden]="dateDate.valid || dateDate.pristine" class="alert alert-danger">
+      <p>Entry has to be dated</p>
+    </div>
+    <label for="Title">Title</label>
+    <input type="text" class="form-control" id="title" [(ngModel)]="newDiary.title" title="title" #title='ngModel' required>
+    <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+      <p>Your Diary entry needs a title!</p>
+    </div>
+    <label for="entry">Diary Entry</label>
+    <textarea class="form-control" id="entry" rows="4" [(ngModel)]="newDiary.entry" name="entry" #entry="ngModel" required></textarea>
+    <div [hidden]="entry.valid || entry.pristine" class="alert alert-danger">
+      <p>Entry cannot be empty.</p>
+    </div>
+    <button type="submit" class="btn btn-info">Save Entry</button>
+  </form>
+</div>
